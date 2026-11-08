@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room to Roam | Clothing Made Around You</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #f8f5ef;
+  --beige: #e9dfd0;
+  --brown: #6c5140;
+  --dark: #302820;
+  --muted: #83776b;
+  --white: #fffefa;
+  --line: #e6ddd1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  padding: 85px 8%;
+  scroll-margin-top: 85px;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 42px;
+}
+
+.section-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--brown);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* NAVIGATION */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(248,245,239,0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.navbar {
+  min-height: 76px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--brown);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.88rem;
+  color: #51463c;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #a47754;
+}
+
+.nav-cta, .primary-btn {
+  border: none;
+  background: var(--brown);
+  color: white;
+  padding: 13px 22px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.nav-cta:hover, .primary-btn:hover {
+  background: #493628;
+  transform: translateY(-2px);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 50px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.06;
+  margin-bottom: 22px;
+  max-width: 650px;
+}
+
+.hero h1 span {
+  color: var(--brown);
+  font-style: italic;
+}
+
+.hero-text {
+  max-width: 510px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.secondary-btn {
+  border: 1px solid var(--brown);
+  padding: 12px 21px;
+  border-radius: 4px;
+  color: var(--brown);
+  background: transparent;
+  transition: 0.2s;
+}
+
+.secondary-btn:hover {
+  background: var(--beige);
+}
+
+.hero-art {
+  min-height: 430px;
+  background: linear-gradient(145deg, #e9ddce, #d5c1aa);
+  border-radius: 48% 48% 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-art::before {
+  content: "";
+  width: 250px;
+  height: 330px;
+  border: 2px solid rgba(108,81,64,0.25);
+  border-radius: 45% 45% 10px 10px;
+  position: absolute;
+}
+
+.hero-art-inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-art-inner .symbol {
+  font-size: 6rem;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.hero-art-inner p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--brown);
+}
+
+/* BRAND STRIP */
+
+.brand-strip {
+  background: #e8ded1;
+  padding: 23px 8%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+  text-align: center;
+  color: var(--brown);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* SHOP */
+
+.shop {
+  background: var(--white);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.product-card {
+  background: var(--cream);
+  padding: 16px;
+  border: 1px solid var(--line);
+  transition: transform 0.25s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-art {
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9dfd2;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-art.trousers {
+  background: #ded8cd;
+}
+
+.product-art.skirt {
+  background: #e6d9ca;
+}
+
+.clothing-shape {
+  width: 125px;
+  height: 205px;
+  position: relative;
+  background: var(--product-colour, #6b7890);
+  clip-path: polygon(12% 0, 88% 0, 100% 100%, 57% 100%, 50% 44%, 43% 100%, 0 100%);
+  filter: drop-shadow(0 10px 7px rgba(0,0,0,0.15));
+}
+
+.product-art.trousers .clothing-shape {
+  width: 150px;
+  height: 205px;
+  clip-path: polygon(12% 0, 88% 0, 78% 100%, 53% 100%, 49% 40%, 44% 100%, 18% 100%);
+}
+
+.product-art.skirt .clothing-shape {
+  width: 155px;
+  height: 190px;
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+}
+
+.product-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  margin: 18px 0 7px;
+}
+
+.product-description {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.product-card button {
+  width: 100%;
+  border: 1px solid var(--brown);
+  color: var(--brown);
+  background: transparent;
+  padding: 12px;
+  transition: 0.2s;
+}
+
+.product-card button:hover {
+  background: var(--brown);
+  color: white;
+}
+
+/* CUSTOMISER */
+
+.customise {
+  background: #f0e9df;
+}
+
+.customiser-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: start;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.preview-panel {
+  background: #e4d8c8;
+  min-height: 510px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  position: sticky;
+  top: 100px;
+}
+
+.preview-panel h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.preview-clothing {
+  width: 205px;
+  height: 300px;
+  background: #78849a;
+  clip-path: polygon(13% 0, 87% 0, 100% 100%, 57% 100%, 50% 43%, 43% 100%, 0 100%);
+  position: relative;
+  transition: background 0.25s;
+  filter: drop-shadow(0 12px 9px rgba(0,0,0,0.15));
+}
+
+.preview-clothing.trousers {
+  width: 220px;
+  height: 300px;
+  clip-path: polygon(12% 0, 88% 0, 78% 100%, 53% 100%, 50% 42%, 45% 100%, 18% 100%);
+}
+
+.preview-clothing.skirt {
+  width: 230px;
+  height: 270px;
+  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);
+}
+
+.preview-pocket {
+  width: 34px;
+  height: 42px;
+  border: 2px solid rgba(255,255,255,0.65);
+  border-radius: 3px 3px 10px 10px;
+  position: absolute;
+  top: 75px;
+  left: 38px;
+}
+
+.preview-pocket.right {
+  left: auto;
+  right: 38px;
+}
+
+.preview-pocket.back {
+  top: 145px;
+  width: 42px;
+  height: 40px;
+}
+
+.preview-pocket.side {
+  top: 120px;
+  left: 5px;
+  width: 17px;
+  height: 55px;
+}
+
+.preview-pocket.hidden {
+  border-style: dashed;
+  opacity: 0.35;
+}
+
+.preview-caption {
+  color: var(--brown);
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.88rem;
+}
+
+.customiser-form {
+  background: var(--white);
+  padding: 32px;
+  border: 1px solid var(--line);
+}
+
+.customiser-form h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.form-intro {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 27px;
+  line-height: 1.6;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label, .form-group legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+}
+
+.form-group select, .form-group input[type="text"], .form-group textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 12px;
+  background: #fff;
+  border-radius: 3px;
+  color: var(--dark);
+}
+
+.form-group select:focus, .form-group input:focus, .form-group textarea:focus {
+  outline: 2px solid #b59a80;
+}
+
+.colour-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+#colourPicker {
+  width: 65px;
+  height: 48px;
+  border: 1px solid var(--line);
+  background: white;
+  padding: 3px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#hexValue {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.colour-presets {
+  display: flex;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.colour-preset {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  border: 2px solid white;
+  outline: 1px solid #c9bdae;
+  cursor: pointer;
+}
+
+.radio-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 9px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  padding: 11px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.radio-option:has(input:checked) {
+  background: #eee5da;
+  border-color: var(--brown);
+}
+
+.radio-option input {
+  accent-color: var(--brown);
+}
+
+.customiser-form .primary-btn {
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* SURVEY */
+
+.survey {
+  background: var(--white);
+}
+
+.survey-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 20px;
+}
+
+.survey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.survey-stat {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 25px;
+  text-align: center;
+}
+
+.survey-stat strong {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.survey-stat p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* STORY */
+
+.story {
+  background: var(--cream);
+}
+
+.story-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+
+.story-content p {
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.story-quote {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  color: var(--brown);
+  line-height: 1.4;
+  margin: 35px 0;
+}
+
+/* SUSTAINABILITY */
+
+.sustainability {
+  background: #e8ded1;
+}
+
+.sustainability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.sustainability-card {
+  background: rgba(255,255,255,0.65);
+  padding: 28px;
+  border-radius: 4px;
+}
+
+.sustainability-card .icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.sustainability-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.sustainability-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+/* CONTACT / FOOTER */
+
+.contact {
+  text-align: center;
+  background: var(--white);
+}
+
+.contact p {
+  color: var(--muted);
+  margin: 12px auto 25px;
+  line-height: 1.7;
+  max-width: 550px;
+}
+
+.contact input {
+  padding: 13px;
+  width: min(320px, 100%);
+  border: 1px solid var(--line);
+  margin-right: 7px;
+  margin-bottom: 10px;
+}
+
+footer {
+  background: #302820;
+  color: #f8f5ef;
+  padding: 35px 8%;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+footer .logo {
+  margin-bottom: 10px;
+}
+
+/* CHATBOT */
+
+.chat-launcher {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 50;
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  background: var(--brown);
+  color: white;
+  font-size: 1.65rem;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+.chat-launcher:hover {
+  transform: scale(1.07);
+}
+
+.chat-window {
+  position: fixed;
+  right: 25px;
+  bottom: 102px;
+  z-index: 50;
+  width: min(370px, calc(100vw - 30px));
+  height: 500px;
+  max-height: calc(100vh - 130px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-window.open {
+  display: flex;
+}
+
+.chat-header {
+  background: var(--brown);
+  color: white;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+}
+
+.chat-header p {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin-top: 3px;
+}
+
+.chat-close {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fbf9f5;
+}
+
+.message {
+  max-width: 88%;
+  padding: 11px 13px;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: #eee6dc;
+  border-bottom-left-radius: 3px;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--brown);
+  color: white;
+  border-bottom-right-radius: 3px;
+}
+
+.chat-quick-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0 13px 12px;
+  background: #fbf9f5;
+}
+
+.quick-option {
+  border: 1px solid #bda995;
+  color: var(--brown);
+  background: white;
+  border-radius: 20px;
+  padding: 7px 11px;
+  font-size: 0.77rem;
+}
+
+.quick-option:hover {
+  background: #eee6dc;
+}
+
+.chat-input-row {
+  display: flex;
+  border-top: 1px solid var(--line);
+  padding: 10px;
+  gap: 8px;
+}
+
+.chat-input-row input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--line);
+  padding: 11px;
+  border-radius: 20px;
+}
+
+.chat-input-row button {
+  background: var(--brown);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+/* MODAL */
+
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 80;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.show {
+  display: flex;
+}
+
+.modal {
+  background: var(--white);
+  width: min(460px, 100%);
+  padding: 32px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.modal h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.modal p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.modal button {
+  margin: 5px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr 0.8fr;
+  }
+
+  .customiser-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .preview-panel {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  section {
+    padding: 65px 6%;
+  }
+
+  .navbar {
+    padding: 15px 5%;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .nav-cta {
+    padding: 10px 13px;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 55px;
+  }
+
+  .hero-art {
+    min-height: 330px;
+  }
+
+  .product-grid, .sustainability-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-options {
+    grid-template-columns: 1fr;
+  }
+
+  .customiser-form {
+    padding: 22px;
+  }
+
+  .chat-window {
+    right: 15px;
+    bottom: 92px;
+  }
+
+  .chat-launcher {
+    right: 17px;
+    bottom: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="#home" class="logo">Room <span>to</span> Roam.</a>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#customise">Customise</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#sustainability">Sustainability</a></li>
+    </ul>
+
+    <a href="#customise" class="nav-cta">Create yours</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">Everyday fashion, reimagined</div>
+    <h1>More room for <span>your</span> everyday.</h1>
+    <p class="hero-text">
+      Your clothes should work around your lifestyle.
+      Discover everyday clothing that lets you personalise
+      the colour, pocket depth and placement to suit your needs.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#customise" class="primary-btn">Design your clothing</a>
+      <a href="#story" class="secondary-btn">Discover our idea</a>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <div class="hero-art-inner">
+      <div class="symbol">✳</div>
+      <p>Designed around you.</p>
+    </div>
+  </div>
+</section>
+
+<div class="brand-strip">
+  <span>YOUR STYLE</span>
+  <span>YOUR STORAGE</span>
+  <span>YOUR EVERYDAY</span>
+  <span>YOUR CHOICE</span>
+</div>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <div class="section-heading">
+    <div class="eyebrow">The collection</div>
+    <h2>Everyday pieces, made personal.</h2>
+    <p>
+      Start with a style you love, then customise its features
+      to suit the way you carry your everyday essentials.
+    </p>
+  </div>
+
+  <div class="product-grid">
+
+    <article class="product-card">
+      <div class="product-art">
+        <div class="clothing-shape"></div>
+      </div>
+      <h3 class="product-name">The Everyday Jean</h3>
+      <p class="product-description">
+        A versatile everyday style with customisable pocket options.
+      </p>
+      <button onclick="chooseProduct('jeans')">Customise jeans</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-art trousers">
+        <div class="clothing-shape"></div>
+      </div>
+      <h3 class="product-name">The Everyday Trouser</h3>
+      <p class="product-description">
+        A comfortable, adaptable design for different occasions.
+      </p>
+      <button onclick="chooseProduct('trousers')">Customise trousers</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-art skirt">
+        <div class="clothing-shape"></div>
+      </div>
+      <h3 class="product-name">The Everyday Skirt</h3>
+      <p class="product-description">
+        A simple silhouette with storage designed around your needs.
+      </p>
+      <button onclick="chooseProduct('skirt')">Customise skirt</button>
+    </article>
+
+  </div>
+</section>
+
+<!-- CUSTOMISER -->
+<section class="customise" id="customise">
+  <div class="section-heading">
+    <div class="eyebrow">Make it yours</div>
+    <h2>Your clothing. Your choices.</h2>
+    <p>
+      Personalise your design by selecting your preferred colour,
+      pocket depth and pocket placement.
+    </p>
+  </div>
+
+  <div class="customiser-layout">
+
+    <div class="preview-panel">
+      <h3 id="previewTitle">Your Everyday Jeans</h3>
+
+      <div class="preview-clothing" id="previewClothing">
+        <div class="preview-pocket" id="pocketOne"></div>
+        <div class="preview-pocket right" id="pocketTwo"></div>
+      </div>
+
+      <p class="preview-caption" id="previewCaption">
+        Your design will appear here.
+      </p>
+    </div>
+
+    <div class="customiser-form">
+      <h3>Build your design</h3>
+      <p class="form-intro">
+        Choose the features that make your everyday clothing work for you.
+      </p>
+
+      <div class="form-group">
+        <label for="productType">1. Choose your clothing</label>
+        <select id="productType" onchange="updatePreview()">
+          <option value="jeans">Jeans</option>
+          <option value="trousers">Trousers</option>
+          <option value="skirt">Skirt</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>2. Choose ANY colour</label>
+        <div class="colour-row">
+          <input type="color" id="colourPicker" value="#78849a"
+                 oninput="updatePreview()">
+          <span id="hexValue">#78849A</span>
+        </div>
+
+        <div class="colour-presets">
+          <button class="colour-preset" style="background:#78849a"
+                  aria-label="Blue" onclick="setColour('#78849a')"></button>
+          <button class="colour-preset" style="background:#302f2c"
+                  aria-label="Black" onclick="setColour('#302f2c')"></button>
+          <button class="colour-preset" style="background:#c9b69c"
+                  aria-label="Beige" onclick="setColour('#c9b69c')"></button>
+          <button class="colour-preset" style="background:#76513b"
+                  aria-label="Brown" onclick="setColour('#76513b')"></button>
+          <button class="colour-preset" style="background:#9b777b"
+                  aria-label="Rose" onclick="setColour('#9b777b')"></button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pocketDepth">3. Select pocket depth</label>
+        <select id="pocketDepth" onchange="updatePreview()">
+          <option value="Standard">Standard — everyday essentials</option>
+          <option value="Deep">Deep — additional storage</option>
+          <option value="Extra deep">Extra deep — more room for essentials</option>
+        </select>
+      </div>
+
+      <fieldset class="form-group" style="border:0">
+        <legend>4. Choose pocket placement</legend>
+
+        <div class="radio-options">
+          <label class="radio-option">
+            <input type="radio" name="placement" value="Front" checked
+                   onchange="updatePreview()"> Front
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="placement" value="Back"
+                   onchange="updatePreview()"> Back
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="placement" value="Both front and back"
+                   onchange="updatePreview()"> Both front and back
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="placement" value="Side"
+                   onchange="updatePreview()"> Side
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="placement" value="Hidden"
+                   onchange="updatePreview()"> Hidden pockets
+          </label>
+
+          <label class="radio-option">
+            <input type="radio" name="placement" value="Custom"
+                   onchange="updatePreview()"> Custom placement
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <label for="extraDetails">5. Any additional preferences? (Optional)</label>
+        <textarea id="extraDetails" rows="3"
+          placeholder="E.g. a secure phone pocket, a zip pocket or a particular arrangement..."></textarea>
+      </div>
+
+      <button class="primary-btn" onclick="saveDesign()">
+        Save my design
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SURVEY INSIGHTS -->
+<section class="survey" id="survey">
+  <div class="section-heading">
+    <div class="eyebrow">Designed with people in mind</div>
+    <h2>Inspired by everyday needs.</h2>
+    <p>
+      We asked potential customers about their clothing habits
+      and what they usually carry. Their responses helped shape
+      the Room to Roam concept.
+    </p>
+  </div>
+
+  <div class="survey-grid">
+    <div class="survey-stat">
+      <strong>88.9%</strong>
+      <p>of respondents usually carry a phone when going out.</p>
+    </div>
+
+    <div class="survey-stat">
+      <strong>55.6%</strong>
+      <p>wear jeans, trousers or similar clothing several times a week.</p>
+    </div>
+
+    <div class="survey-stat">
+      <strong>22.2%</strong>
+      <p>usually carry a wallet or cards, and 22.2% carry earphones.</p>
+    </div>
+  </div>
+
+  <p class="survey-note">
+    Based on 9 survey responses. Percentages are rounded.
+    These are early survey insights, not representative population statistics.
+  </p>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-content">
+    <div class="eyebrow">Our story</div>
+    <h2 class="section-heading" style="margin-bottom:20px">
+      Fashion should adapt to you.
+    </h2>
+
+    <p>
+      Everyday clothing is part of almost everyone's routine.
+      Yet the storage options available in clothing do not always
+      match what people need to carry.
+    </p>
+
+    <p>
+      Room to Roam was developed around a simple idea:
+      people should have more choice in how their clothing works.
+      Instead of accepting one fixed pocket design, customers
+      can explore different configurations to suit their lifestyle.
+    </p>
+
+    <div class="story-quote">
+      "Fashion should adapt to people's everyday needs —
+      not the other way around."
+    </div>
+
+    <p>
+      Our goal is to combine personal style, practical storage
+      and thoughtful design in one everyday clothing experience.
+    </p>
+  </div>
+</section>
+
+<!-- SUSTAINABILITY -->
+<section class="sustainability" id="sustainability">
+  <div class="section-heading">
+    <div class="eyebrow">Thoughtful by design</div>
+    <h2>A more considered approach.</h2>
+    <p>
+      We want Room to Roam to explore practical ways to make
+      everyday fashion more thoughtful and adaptable.
+    </p>
+  </div>
+
+  <div class="sustainability-grid">
+    <article class="sustainability-card">
+      <div class="icon">♻</div>
+      <h3>Durability first</h3>
+      <p>
+        We aim to explore durable materials and construction
+        so clothing can be designed for regular everyday use.
+      </p>
+    </article>
+
+    <article class="sustainability-card">
+      <div class="icon">✂</div>
+      <h3>Made with intention</h3>
+      <p>
+        A potential made-to-order approach could help reduce
+        unnecessary stock and overproduction.
+      </p>
+    </article>
+
+    <article class="sustainability-card">
+      <div class="icon">🧵</div>
+      <h3>Designed to last</h3>
+      <p>
+        We want to consider repairable designs and practical
+        features that help customers keep their clothing useful.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="eyebrow">Be part of the idea</div>
+  <h2 class="section-heading" style="margin-bottom:10px">
+    Your everyday, your way.
+  </h2>
+
+  <p>
+    Interested in Room to Roam? Register your interest
+    and be part of our journey.
+  </p>
+
+  <form id="interestForm">
+    <input type="email" id="interestEmail"
+           placeholder="Your email address" required>
+    <button class="primary-btn" type="submit">Register interest</button>
+  </form>
+
+  <p id="interestMessage" style="margin-top:15px"></p>
+</section>
+
+</main>
+
+<footer>
+  <div class="logo">Room <span>to</span> Roam.</div>
+  <p>Fashion that moves with you.</p>
+  <p>© 2026 Room to Roam. Student entrepreneurship prototype.</p>
+</footer>
+
+<!-- FLOATING CHATBOT BUTTON -->
+<button class="chat-launcher" id="chatLauncher"
+        aria-label="Open Room to Roam assistant"
+        onclick="toggleChat()">✦</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div>
+      <h3>Room to Roam Assistant</h3>
+      <p>Let's find your everyday fit.</p>
+    </div>
+    <button class="chat-close" onclick="toggleChat()"
+            aria-label="Close chat">×</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <div class="message bot">
+      Hi! Welcome to Room to Roam. I'm here to help you explore
+      clothing and pocket options that suit your everyday needs.
+
+      What would you like to do?
+    </div>
+  </div>
+
+  <div class="chat-quick-options" id="quickOptions">
+    <button class="quick-option" onclick="quickChat('Help me customise')">
+      Customise clothing
+    </button>
+    <button class="quick-option" onclick="quickChat('I need phone storage')">
+      Phone storage
+    </button>
+    <button class="quick-option" onclick="quickChat('Show me clothing options')">
+      Explore styles
+    </button>
+  </div>
+
+  <form class="chat-input-row" id="chatForm">
+    <input type="text" id="chatInput"
+           placeholder="Type your message..." autocomplete="off">
+    <button type="submit" aria-label="Send message">➤</button>
+  </form>
+</div>
+
+<!-- DESIGN SAVED MODAL -->
+<div class="modal-backdrop" id="designModal">
+  <div class="modal">
+    <h3>Your design is ready!</h3>
+    <p id="savedDesignText"></p>
+    <button class="primary-btn" onclick="closeModal()">Continue exploring</button>
+    <button class="secondary-btn" onclick="openAssistant()">Ask the assistant</button>
+  </div>
+</div>
+
+<script>
+/* CUSTOMISER */
+
+const productNames = {
+  jeans: "Your Everyday Jeans",
+  trousers: "Your Everyday Trousers",
+  skirt: "Your Everyday Skirt"
+};
+
+function getPlacement() {
+  return document.querySelector('input[name="placement"]:checked').value;
+}
+
+function setColour(colour) {
+  document.getElementById("colourPicker").value = colour;
+  updatePreview();
+}
+
+function chooseProduct(product) {
+  document.getElementById("productType").value = product;
+  updatePreview();
+  document.getElementById("customise").scrollIntoView({behavior:"smooth"});
+}
+
+function updatePreview() {
+  const product = document.getElementById("productType").value;
+  const colour = document.getElementById("colourPicker").value;
+  const depth = document.getElementById("pocketDepth").value;
+  const placement = getPlacement();
+
+  const preview = document.getElementById("previewClothing");
+  const pocketOne = document.getElementById("pocketOne");
+  const pocketTwo = document.getElementById("pocketTwo");
+
+  document.getElementById("previewTitle").textContent = productNames[product];
+  document.getElementById("hexValue").textContent = colour.toUpperCase();
+
+  preview.style.background = colour;
+  preview.className = "preview-clothing " + product;
+
+  pocketOne.className = "preview-pocket";
+  pocketTwo.className = "preview-pocket right";
+
+  pocketOne.style.display = "block";
+  pocketTwo.style.display = "none";
+
+  if (placement === "Front") {
+    pocketTwo.style.display = "block";
+  } else if (placement === "Back") {
+    pocketOne.className = "preview-pocket back";
+    pocketTwo.className = "preview-pocket back right";
+    pocketTwo.style.display = "block";
+  } else if (placement === "Both front and back") {
+    pocketOne.className = "preview-pocket";
+    pocketTwo.className = "preview-pocket back right";
+    pocketTwo.style.display = "block";
+  } else if (placement === "Side") {
+    pocketOne.className = "preview-pocket side";
+  } else if (placement === "Hidden") {
+    pocketOne.className = "preview-pocket hidden";
+    pocketTwo.className = "preview-pocket hidden right";
+    pocketTwo.style.display = "block";
+  } else {
+    pocketOne.className = "preview-pocket";
+    pocketTwo.className = "preview-pocket back right";
+    pocketTwo.style.display = "block";
+  }
+
+  document.getElementById("previewCaption").textContent =
+    colour.toUpperCase() + " · " + depth + " pockets · " + placement + " placement";
+}
+
+function saveDesign() {
+  const product = document.getElementById("productType").value;
+  const colour = document.getElementById("colourPicker").value;
+  const depth = document.getElementById("pocketDepth").value;
+  const placement = getPlacement();
+  const extra = document.getElementById("extraDetails").value.trim();
+
+  let summary = productNames[product] +
+    " in " + colour.toUpperCase() +
+    ", with " + depth.toLowerCase() +
+    " pockets and " + placement.toLowerCase() + " placement.";
+
+  if (extra) summary += " Extra preferences: " + extra;
+
+  document.getElementById("savedDesignText").textContent =
+    summary + " This is a prototype design preview, not an actual order.";
+
+  document.getElementById("designModal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("designModal").classList.remove("show");
+}
+
+updatePreview();
+
+/* CHATBOT */
+
+const chatWindow = document.getElementById("chatWindow");
+const chatMessages = document.getElementById("chatMessages");
+const quickOptions = document.getElementById("quickOptions");
+
+let chatStep = "start";
+let chatAnswers = {
+  product: "",
+  carry: "",
+  depth: "",
+  placement: "",
+  colour: ""
+};
+
+function toggleChat() {
+  chatWindow.classList.toggle("open");
+}
+
+function openAssistant() {
+  closeModal();
+  chatWindow.classList.add("open");
+  document.getElementById("chatInput").focus();
+}
+
+function addMessage(text, sender) {
+  const message = document.createElement("div");
+  message.className = "message " + sender;
+  message.textContent = text;
+  chatMessages.appendChild(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function showOptions(options) {
+  quickOptions.innerHTML = "";
+
+  options.forEach(option => {
+    const button = document.createElement("button");
+    button.className = "quick-option";
+    button.textContent = option;
+    button.addEventListener("click", () => handleChat(option));
+    quickOptions.appendChild(button);
+  });
+}
+
+function quickChat(text) {
+  handleChat(text);
+}
+
+function handleChat(text) {
+  addMessage(text, "user");
+
+  const lower = text.toLowerCase();
+
+  if (chatStep === "start" || lower.includes("customise") ||
+      lower.includes("customize") || lower.includes("clothing options")) {
+    chatStep = "product";
+    addMessage("Great! Which clothing style are you interested in?", "bot");
+    showOptions(["Jeans", "Trousers", "Skirt"]);
+    return;
+  }
+
+  if (chatStep === "product") {
+    if (lower.includes("jean")) chatAnswers.product = "jeans";
+    else if (lower.includes("trouser") || lower.includes("pants"))
+      chatAnswers.product = "trousers";
+    else if (lower.includes("skirt")) chatAnswers.product = "skirt";
+    else {
+      addMessage("You can choose jeans, trousers or a skirt. Which would you prefer?", "bot");
+      showOptions(["Jeans", "Trousers", "Skirt"]);
+      return;
+    }
+
+    chatStep = "carry";
+    addMessage("What do you usually need to carry with you?", "bot");
+    showOptions(["Phone", "Phone and wallet", "Phone and earphones", "Several essentials"]);
+    return;
+  }
+
+  if (chatStep === "carry") {
+    chatAnswers.carry = text;
+    chatStep = "depth";
+    addMessage("How much pocket space would you prefer?", "bot");
+    showOptions(["Standard", "Deep", "Extra deep"]);
+    return;
+  }
+
+  if (chatStep === "depth") {
+    if (lower.includes("standard")) chatAnswers.depth = "Standard";
+    else if (lower.includes("extra")) chatAnswers.depth = "Extra deep";
+    else if (lower.includes("deep")) chatAnswers.depth = "Deep";
+    else {
+      addMessage("Please choose standard, deep or extra deep.", "bot");
+      showOptions(["Standard", "Deep", "Extra deep"]);
+      return;
+    }
+
+    chatStep = "placement";
+    addMessage("Where would you like your pockets to be placed?", "bot");
+    showOptions(["Front", "Back", "Both front and back", "Side", "Hidden", "Custom"]);
+    return;
+  }
+
+  if (chatStep === "placement") {
+    chatAnswers.placement = text;
+    chatStep = "colour";
+    addMessage("Lovely! What colour would you like? You can choose absolutely any colour in the customiser.", "bot");
+    showOptions(["Blue", "Black", "Beige", "Brown", "Choose my own"]);
+    return;
+  }
+
+  if (chatStep === "colour") {
+    chatAnswers.colour = text;
+
+    addMessage(
+      "Here's your suggested Room to Roam design:\n\n" +
+      "Style: " + chatAnswers.product + "\n" +
+      "Essentials: " + chatAnswers.carry + "\n" +
+      "Pocket depth: " + chatAnswers.depth + "\n" +
+      "Placement: " + chatAnswers.placement + "\n" +
+      "Colour preference: " + chatAnswers.colour +
+      "\n\nWould you like to apply these choices to the customiser?",
+      "bot"
+    );
+
+    chatStep = "finish";
+    showOptions(["Apply my choices", "Start again"]);
+    return;
+  }
+
+  if (chatStep === "finish") {
+    if (lower.includes("apply")) {
+      applyChatDesign();
+      addMessage("Done! I've placed those choices into the customiser. You can adjust anything you like there.", "bot");
+      showOptions(["Customise more", "Start again"]);
+    } else {
+      resetChat();
+      addMessage("No problem! Let's create a new design. Which clothing style would you like?", "bot");
+      showOptions(["Jeans", "Trousers", "Skirt"]);
+    }
+    return;
+  }
+
+  if (lower.includes("hello") || lower.includes("hi")) {
+    addMessage("Hello! I can help you explore styles and pocket configurations. Would you like to customise some clothing?", "bot");
+    showOptions(["Customise clothing", "Explore styles"]);
+  } else {
+    addMessage("I can help you choose a clothing style, pocket depth, placement and colour. Try selecting one of the options below, or start with a clothing style.", "bot");
+    showOptions(["Jeans", "Trousers", "Skirt"]);
+    chatStep = "product";
+  }
+}
+
+function applyChatDesign() {
+  document.getElementById("productType").value = chatAnswers.product;
+
+  document.getElementById("pocketDepth").value =
+    chatAnswers.depth;
+
+  const placementMap = {
+    "front": "Front",
+    "back": "Back",
+    "both front and back": "Both front and back",
+    "side": "Side",
+    "hidden": "Hidden",
+    "custom": "Custom"
+  };
+
+  const placementValue =
+    placementMap[chatAnswers.placement.toLowerCase()] || "Front";
+
+  document.querySelector(
+    'input[name="placement"][value="' + placementValue + '"]'
+  ).checked = true;
+
+  const colourMap = {
+    blue: "#78849a",
+    black: "#302f2c",
+    beige: "#c9b69c",
+    brown: "#76513b"
+  };
+
+  const chosenColour = colourMap[chatAnswers.colour.toLowerCase()];
+
+  if (chosenColour) {
+    document.getElementById("colourPicker").value = chosenColour;
+  }
+
+  updatePreview();
+
+  document.getElementById("customise").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+function resetChat() {
+  chatStep = "product";
+  chatAnswers = {
+    product: "",
+    carry: "",
+    depth: "",
+    placement: "",
+    colour: ""
+  };
+}
+
+document.getElementById("chatForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const input = document.getElementById("chatInput");
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  input.value = "";
+  handleChat(text);
+});
+
+/* REGISTER INTEREST PROTOTYPE */
+
+document.getElementById("interestForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  document.getElementById("interestMessage").textContent =
+    "Thank you for your interest! This is a website prototype, so your details have not been sent or stored.";
+
+  document.getElementById("interestEmail").value = "";
+});
+</script>
+
+</body>
+</html>
